@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Munna Mobile BWN | Premium Store</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<a href="https://wa.me/92315651767?text=Hello%20Munna%20Mobile!%20I%20want%20to%20buy%20a%20phone." 
+   class="whatsapp-float" 
+   target="_blank">
+   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+   <span class="tooltip">Chat with us!</span>
+</a>
+<style>
+    /* WhatsApp Float Styling */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: #25d366;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+    z-index: 3000; /* Taake sab ke upar rahay */
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float img {
+    width: 35px;
+    height: 35px;
+}
+
+/* Hover Effect */
+.whatsapp-float:hover {
+    transform: scale(1.1) translateY(-5px);
+    background-color: #20ba5a;
+    box-shadow: 0 15px 30px rgba(37, 211, 102, 0.5);
+}
+
+/* Tooltip (Chat with us text) */
+.whatsapp-float .tooltip {
+    position: absolute;
+    right: 75px;
+    background: #fff;
+    color: #333;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.whatsapp-float:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    right: 80px;
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 600px) {
+    .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+    }
+    .whatsapp-float img {
+        width: 28px;
+        height: 28px;
+    }
+    .tooltip { display: none; } /* Mobile par tooltip chupa do */
+}
+</style>
+<nav class="navbar">
+    <div class="nav-blur-bg"></div> <div class="nav-container">
+        <div class="logo">
+            <span class="bolt">⚡</span> MUNNA <span>MOBILE</span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#stock">Stock</a></li>
+            <li><a href="#new">New Arrivals</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <button class="btn-contact">Contact Us</button>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="mobile-overlay" id="overlay">
+    <ul class="mobile-nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#stock">Stock</a></li>
+        <li><a href="#new">New Arrivals</a></li>
+        <li><button class="btn-contact-mob">Get in Touch</button></li>
+    </ul>
+</div>
+<script>
+    const menu = document.querySelector('#mobile-menu');
+    const overlay = document.querySelector('#overlay');
+
+    menu.addEventListener('click', function() {
+        // Toggle the hamburger animation
+        menu.classList.toggle('is-active');
+        // Slide the menu overlay
+        overlay.classList.toggle('open');
+        
+        // Disable scrolling when menu is open
+        if(overlay.classList.contains('open')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+        }
+    });
+
+    // Close menu when clicking a link
+    document.querySelectorAll('.mobile-nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            menu.classList.remove('is-active');
+            overlay.classList.remove('open');
+            document.body.style.overflow = 'auto';
+        });
+    });
+</script>
+
+<div class="hero-wrapper">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>The <span class="gold-text">Titanium</span> Era</h1>
+                        <p>iPhone 15 Pro. Lighter. Stronger. Faster.</p>
+                        <button class="btn-fill">Shop Now</button>
+                    </div>
+                    <div class="hero-img">
+                        <img src="./images/iphnoe.png" alt="iPhone">
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>Epic <span class="gold-text">Galaxy AI</span></h1>
+                        <p>Samsung S24 Ultra. The future of intelligence.</p>
+                        <button class="btn-fill">Discover</button>
+                    </div>
+                    <div class="hero-img">
+                        <img src="./images/h2.png" alt="Samsung">
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>Pure <span class="gold-text">Google</span> Magic</h1>
+                        <p>Pixel 8 Pro. The best camera in your pocket.</p>
+                        <button class="btn-fill">Explore</button>
+                    </div>
+                    <div class="hero-img">
+                        <img src="./images/pixel.png" alt="Pixel">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
+<script>
+    const menuBtn = document.getElementById('menu-btn');
+    const navMenu = document.getElementById('nav-menu');
+
+    menuBtn.addEventListener('click', () => {
+        // Ye line 'active' class ko lagati aur hatati hai
+        navMenu.classList.toggle('active');
+        
+        // Icon change karne ke liye (Optional)
+        if(navMenu.classList.contains('active')) {
+            menuBtn.innerHTML = "✕"; // Close icon
+        } else {
+            menuBtn.innerHTML = "☰"; // Hamburger icon
+        }
+    });
+</script>
+<!--cardddddddddddddd-->
+<section class="impact-section">
+    <div class="glow-ball ball-1"></div>
+    <div class="glow-ball ball-2"></div>
+
+    <div class="impact-container">
+        <div class="impact-header">
+            <span class="tag">WHY CHOOSE US</span>
+            <h2>BWN's Premium Tech Experience</h2>
+        </div>
+
+        <div class="impact-grid">
+            <div class="impact-card">
+                <div class="card-icon">
+                    <img src="https://cdn-icons-png.flaticon.com/512/7595/7595571.png" alt="PTA">
+                </div>
+                <h3>100% PTA Approved</h3>
+                <p>Genuine handsets with official PTA approval for lifetime connectivity assurance.</p>
+            </div>
+
+            <div class="impact-card">
+                <div class="card-icon">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2099/2099192.png" alt="Tech">
+                </div>
+                <h3>BWN's Tech Hub</h3>
+                <p>Bahawalnagar's largest and most trusted destination for premium mobile tech.</p>
+            </div>
+
+            <div class="impact-card">
+                <div class="card-icon">
+                    <img src="https://cdn-icons-png.flaticon.com/512/610/610333.png" alt="Exchange">
+                </div>
+                <h3>Exchange & Upgrade</h3>
+                <p>Bring your old device and step into the future with our easy upgrade programs.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--iphnowwwwwwwwwwwwwwwwwwweeeeeeeeeeee-->
+
+<section class="category-section">
+    <div class="blob-yellow"></div>
+    
+    <div class="category-container">
+        <div class="section-top">
+            <div class="title-area">
+                <span class="tag">PREMIUM SERIES</span>
+                <h2>iPhone Elite Selection</h2>
+            </div>
+            <a href="#" class="view-all">View All Inventory →</a>
+        </div>
+
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="./images/iphone/i-15.png" alt="iPhone 15 Pro Max">
+                </div>
+                <div class="product-info">
+                    <div class="rating"><span>★★★★★</span> <small>(4.9)</small></div>
+                    <h3>iPhone 15 Pro Max</h3>
+                    <p>Natural Titanium | 256GB</p>
+                    <div class="card-footer">
+                        <span class="price">Rs: 485k</span>
+                        <button class="explore-btn">Explore</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="./images/iphone/i2.png" alt="iPhone 15 Pro">
+                </div>
+                <div class="product-info">
+                    <div class="rating"><span>★★★★★</span> <small>(4.8)</small></div>
+                    <h3>iPhone 15 Pro</h3>
+                    <p>Blue Titanium | 128GB</p>
+                    <div class="card-footer">
+                        <span class="price">Rs: 415k</span>
+                        <button class="explore-btn">Explore</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="./images/iphone/8+.png" alt="iPhone 14">
+                </div>
+                <div class="product-info">
+                    <div class="rating"><span>★★★★☆</span> <small>(4.7)</small></div>
+                    <h3>iPhone 14 Pro Max</h3>
+                    <p>Deep Purple | 256GB</p>
+                    <div class="card-footer">
+                        <span class="price">Rs: 365k</span>
+                        <button class="explore-btn">Explore</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="./images/iphone/13p.png" alt="iPhone 13">
+                </div>
+                <div class="product-info">
+                    <div class="rating"><span>★★★★☆</span> <small>(4.6)</small></div>
+                    <h3>iPhone 13 Pro Max</h3>
+                    <p>Sierra Blue | 128GB</p>
+                    <div class="card-footer">
+                        <span class="price">Rs: 285k</span>
+                        <button class="explore-btn">Explore</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--samsungggggggggggggggggggggggggg-->
+<section class="samsung-section">
+    <div class="blob-blue"></div>
+    
+    <div class="category-container">
+        <div class="section-top">
+            <div class="title-area">
+                <span class="tag-blue">GALAXY AI INTEGRATED</span>
+                <h2>Samsung Galaxy Series</h2>
+            </div>
+            <a href="#" class="view-all-blue">Explore All Samsung →</a>
+        </div>
+
+        <div class="product-grid">
+            <div class="product-card samsung-card">
+                <div class="ai-badge">✨ Galaxy AI</div>
+                <div class="product-img">
+                    <img src="./images/samgung/ultra25.png" alt="S24 Ultra">
+                </div>
+                <div class="product-info">
+                    <div class="rating"><span>★★★★★</span> <small>(5.0)</small></div>
+                    <h3>Galaxy S24 Ultra</h3>
+                    <p>Titanium Gray | 512GB</p>
+                    <div class="card-footer">
+                        <span class="price">Rs: 399k</span>
+                        <button class="explore-btn-blue">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card samsung-card">
+                <div class="product-img">
+                    <img src="./images/samgung/zod.png" alt="Z Fold 5">
+                </div>
+                <div class="product-info">
+                    <div class="rating"><span>★★★★★</span> <small>(4.9)</small></div>
+                    <h3>Galaxy Z Fold 5</h3>
+                    <p>Icy Blue | Foldable</p>
+                    <div class="card-footer">
+                        <span class="price">Rs: 450k</span>
+                        <button class="explore-btn-blue">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card samsung-card">
+                <div class="product-img">
+                    <img src="./images/samgung/23.png" alt="S23 Ultra">
+                </div>
+                <div class="product-info">
+                    <div class="rating"><span>★★★★☆</span> <small>(4.8)</small></div>
+                    <h3>Galaxy S23 Ultra</h3>
+                    <p>Phantom Black | 256GB</p>
+                    <div class="card-footer">
+                        <span class="price">Rs: 285k</span>
+                        <button class="explore-btn-blue">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card samsung-card">
+                <div class="product-img">
+                    <img src="./images/samgung/24.png" alt="S24 Plus">
+                </div>
+                <div class="product-info">
+                    <div class="rating"><span>★★★★☆</span> <small>(4.7)</small></div>
+                    <h3>Galaxy S24 Plus</h3>
+                    <p>Amber Yellow | 256GB</p>
+                    <div class="card-footer">
+                        <span class="price">Rs: 310k</span>
+                        <button class="explore-btn-blue">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--googleeeeeeeeeeeee-->
+
+<section class="pixel-section">
+    <div class="blob-google"></div>
+    
+    <div class="category-container">
+        <div class="section-top">
+            <div class="title-area">
+                <span class="tag-google">SMARTEST CAMERA PHONE</span>
+                <h2>Google Pixel Series</h2>
+            </div>
+            <a href="#" class="view-all-google">See All Pixels →</a>
+        </div>
+
+        <div class="product-grid">
+            <div class="product-card pixel-card">
+                <div class="pure-android">✨ Pure Android</div>
+                <div class="product-img">
+                    <img src="./images/google/pixel8.png" alt="Pixel 8 Pro">
+                </div>
+                <div class="product-info">
+                    <div class="rating"><span>★★★★★</span> <small>(4.9)</small></div>
+                    <h3>Google Pixel 8 Pro</h3>
+                    <p>Obsidian | AI Camera</p>
+                    <div class="card-footer">
+                        <span class="price">Rs: 245k</span>
+                        <button class="explore-btn-google">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card pixel-card">
+                <div class="product-img">
+                    <img src="./images/google/pixel7.png" alt="Pixel 7 Pro">
+                </div>
+                <div class="product-info">
+                    <div class="rating"><span>★★★★☆</span> <small>(4.7)</small></div>
+                    <h3>Google Pixel 7 Pro</h3>
+                    <p>Hazel | Pro Zoom</p>
+                    <div class="card-footer">
+                        <span class="price">Rs: 175k</span>
+                        <button class="explore-btn-google">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card pixel-card">
+                <div class="product-img">
+                    <img src="./images/google/8.png" alt="Pixel 8">
+                </div>
+                <div class="product-info">
+                    <div class="rating"><span>★★★★☆</span> <small>(4.8)</small></div>
+                    <h3>Google Pixel 8</h3>
+                    <p>Rose | Tensor G3</p>
+                    <div class="card-footer">
+                        <span class="price">Rs: 185k</span>
+                        <button class="explore-btn-google">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card pixel-card">
+                <div class="product-img">
+                    <img src="./images/google/6a.png" alt="Pixel 6a">
+                </div>
+                <div class="product-info">
+                    <div class="rating"><span>★★★★☆</span> <small>(4.6)</small></div>
+                    <h3>Google Pixel 6a</h3>
+                    <p>Chalk | Compact</p>
+                    <div class="card-footer">
+                        <span class="price">Rs: 95k</span>
+                        <button class="explore-btn-google">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--impactttttttttt-->
+
+
+<section class="stats-section">
+    <div class="glow-ball stats-glow"></div>
+
+    <div class="stats-container">
+        <div class="stats-header">
+            <span class="tag">OUR IMPACT</span>
+            <h2>Munna Mobile by the Numbers</h2>
+            <p>Bahawalnagar ka sab se purana aur bharosemand dukan.</p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="circle-box">
+                    <svg class="progress-ring" width="150" height="150">
+                        <circle class="progress-ring__circle-bg" stroke="#222" stroke-width="8" fill="transparent" r="60" cx="75" cy="75"/>
+                        <circle class="progress-ring__circle" stroke="#FFCC00" stroke-width="8" stroke-dasharray="376.99" stroke-dashoffset="37.69" fill="transparent" r="60" cx="75" cy="75"/>
+                    </svg>
+                    <div class="stat-number"><span class="counter">15</span>K+</div>
+                </div>
+                <h3>Trusted Customers</h3>
+                <p>Served across BWN district</p>
+            </div>
+
+            <div class="stat-item">
+                <div class="circle-box">
+                    <svg class="progress-ring" width="150" height="150">
+                        <circle class="progress-ring__circle-bg" stroke="#222" stroke-width="8" fill="transparent" r="60" cx="75" cy="75"/>
+                        <circle class="progress-ring__circle" stroke="#FFCC00" stroke-width="8" stroke-dasharray="376.99" stroke-dashoffset="56.54" fill="transparent" r="60" cx="75" cy="75"/>
+                    </svg>
+                    <div class="stat-number"><span class="counter">25</span>K+</div>
+                </div>
+                <h3>Premium Devices Sold</h3>
+                <p>Flagships delivered since 2015</p>
+            </div>
+
+            <div class="stat-item">
+                <div class="circle-box">
+                    <svg class="progress-ring" width="150" height="150">
+                        <circle class="progress-ring__circle-bg" stroke="#222" stroke-width="8" fill="transparent" r="60" cx="75" cy="75"/>
+                        <circle class="progress-ring__circle" stroke="#FFCC00" stroke-width="8" stroke-dasharray="376.99" stroke-dashoffset="18.84" fill="transparent" r="60" cx="75" cy="75"/>
+                    </svg>
+                    <div class="stat-number"><span class="counter">98</span>%</div>
+                </div>
+                <h3>Positive Rating</h3>
+                <p>Satisfaction from our clients</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!--ownerrrrrrrrrrrrrrrrrrrr-->
+
+<section class="owner-section">
+    <div class="owner-container">
+        <div class="owner-img-box">
+            <div class="owner-border-glow"></div>
+            <img src="./images/CEO.png" alt="Owner Name">
+            <div class="experience-badge">
+                <span class="num">10+</span>
+                <span class="txt">Years Experience</span>
+            </div>
+        </div>
+
+        <div class="owner-content">
+            <span class="owner-tag">MEET THE VISIONARY</span>
+            <h2>Message From <span>The Owner</span></h2>
+            <p class="owner-quote">"Munna Mobile par humara maqsad sirf mobile bechna nahi, balkay Bahawalnagar ke logon ko latest technology aur trusted service provide karna hai. Aapka aitmad hi humari asli kamyabi hai."</p>
+            
+            <div class="owner-signature">
+                <h3>Munna Bhai</h3>
+                <span>Founder & CEO, Munna Mobile</span>
+            </div>
+
+             
+        </div>
+    </div>
+</section>
+<!--footerrrrrrrrrrrrrrrrrrrrrrr-->
+
+<footer class="main-footer">
+    <div class="footer-container">
+        <div class="footer-col brand-info">
+            <div class="logo">⚡ MUNNA <span>MOBILE</span></div>
+            <p>Bahawalnagar's No. 1 destination for premium smartphones & accessories since 2015. Quality and Trust is our priority.</p>
+            <div class="social-icons">
+                <a href="#" class="social-link"><img src="https://www.facebook.com/munnamobilesbwn" alt="facebook"></a>
+                <a href="#" class="social-link"><img src="https://www.tiktok.com/@munnamobilebwn/video/7575531322135907602" alt="TikTok"></a>
+                <a href="#" class="social-link"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp"></a>
+                <a href="#" class="social-link"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="Youtube"></a>
+            </div>
+        </div>
+
+        <div class="footer-col">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#">Repair Center</a></li>
+                <li><a href="#">Check Stock</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+            </ul>
+        </div>
+
+         <div class="footer-col">
+            <h3>contact  Info.</h3>
+            <ul>
+                <li><a href="Munna mobile City Plaza shop #2 Bahawalnagar">Munna mobile City Plaza shop #2 Bahawalnagar</a></li>
+                <li><a href="0315651767">0315651767</a></li>
+                 
+                 
+            </ul>
+        </div>
+
+        <div class="footer-col map-col">
+            <h3>Our Location</h3>
+            <div class="map-wrapper">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3455.487726798311!2d73.25421021010264!3d29.99414887484442!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x393d6f2dcf24ff51%3A0xe4f6ed0f6f367fc8!2sMunna%20Mobile%20Bwn!5e0!3m2!1sen!2s!4v1770911913248!5m2!1sen!2s" 
+                    width="100%" height="150" style="border:0; border-radius: 15px;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 Munna Mobile BWN. All Rights Reserved.</p>
+        <p class="credits">Coded by <span>CODEDCRAFTE</span></p>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            loop: true,
+            grabCursor: true,
+            pagination: { el: ".swiper-pagination", clickable: true },
+            autoplay: { delay: 4000, disableOnInteraction: false },
+        });
+    </script>
+</body>
+</html>
